@@ -27,5 +27,5 @@ class ContactForm(forms.Form):
             "\n ----------------------------------------------- \n" +\
             "Email address: "  + self.cleaned_data['email'],
             "afsdjango@gmail.com",
-            ["info@afsgroup.mu"],
+            ["afsdjango@gmail.com"],
             fail_silently=False)
