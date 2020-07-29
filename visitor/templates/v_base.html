@@ -65,7 +65,7 @@
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item {% if 'login' in request.path %} active {% endif %}">
-                        <a class="nav-link" href="{% url 'emp:login' %}">Employee Login 
+                        <a class="nav-link" href="{% url 'visitor:index' %}">Employee Login 
                             {% if 'login' in request.path%}<span class="sr-only">(current)</span>{% endif %}</a>
                         </li>
                 </ul>
