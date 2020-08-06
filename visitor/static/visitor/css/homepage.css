@@ -127,7 +127,13 @@
   font-size: 29px;
   color: black;
 }
+
+.space {
+    margin-top:10px;
+    margin-bottom:10px;
+}
 #firstrow {
+    margin-
     background-color:#e6f8ff;
 }
 #secondrow {
@@ -141,6 +147,7 @@
     background-color:#d9f4ff;
 }
 .homeinfo {
+    padding-left:10px;
     padding-bottom:30px;
     width:100%;
 }
