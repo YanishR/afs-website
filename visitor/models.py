@@ -47,9 +47,9 @@ class SiteConfiguration(models.Model):
                     "Can only create one instance of " + model.__name__)
 
 class Homepage(models.Model):
-    our_firm = models.CharField(verbose_name="Our Firm", max_length=2000)
-    about_us = models.CharField(verbose_name="About Us", max_length=2000)
-    resume = models.CharField(verbose_name="Resume Of the Director", max_length=2000)
+    our_firm = models.TextField(verbose_name="Our Firm", max_length=2000)
+    about_us = models.TextField(verbose_name="About Us", max_length=2000)
+    resume = models.TextField(verbose_name="Resume Of the Director", max_length=2000)
 
     def __str__(self):
         return "Homepage"

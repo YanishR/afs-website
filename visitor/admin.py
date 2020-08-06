@@ -1,6 +1,10 @@
 from django.contrib import admin
 
 from .models import Service, ServiceDetail, SiteConfiguration, Homepage
+
+from django.forms import TextInput, Textarea
+from django.db import models
+
 # Register your models here.
 
 class ServiceDetailInline(admin.TabularInline):
@@ -35,6 +39,10 @@ class HomepageAdmin(admin.ModelAdmin):
     verbose_name = 'Homepage'
     list_display = ('id','our_firm', 'about_us', 'resume')
 
+    formfield_overrides = {
+            models.CharField: {'widget': TextInput(attrs={'rows':'4','size':'100'})},
+            models.TextField: {'widget': Textarea(attrs={'rows':6, 'cols':80})},
+        }
     def has_add_permission(self, request):
         if self.model.objects.count() > 0:
             return False
