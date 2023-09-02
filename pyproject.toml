@@ -2,7 +2,7 @@
 name = "deploy"
 version = "0.1.0"
 description = "Abhasa Financial Services web app"
-authors = ["Yanish <yanish.rambocus@ovo.com>"]
+authors = ["Yanish <yanishrambocus@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
