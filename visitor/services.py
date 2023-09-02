@@ -8,6 +8,7 @@ class Service:
     long_description: str
     display: bool
     icon: str
+    rank: int
 
 @dataclasses.dataclass
 class ServiceDetail:

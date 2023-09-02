@@ -5,14 +5,18 @@ from django.urls import reverse
 
 from django.views import generic
 
+from .homepage_text import HomepageText
 # Model imports
-from .models import Service, SiteConfiguration, ServiceDetail, Homepage
+from .models import Service, ServiceDetail, Homepage
 
 # Form imports
 from .forms import ContactForm
 
 # Email imports
 from django.core.mail import send_mail
+
+from .services import services
+
 
 # Create your views here.
 class IndexView(generic.ListView):
@@ -21,16 +25,7 @@ class IndexView(generic.ListView):
     context_object_name = 'home'
 
     def get_queryset(self):
-        return { 'text': Homepage.objects.get(id=1), 
-                'services': Service.objects.filter(display=True)}
-
-class TestView(generic.ListView):
-    template_name = 'visitor/test.html'
-
-    context_object_name = 'test'
-
-    def get_queryset(self):
-        return {}
+        return { 'text': HomepageText() }
 
 class AboutView(generic.ListView):
     template_name = 'visitor/company.html'
@@ -51,10 +46,9 @@ class CareersView(generic.ListView):
 class ServicesView(generic.ListView):
     template_name = 'visitor/services.html'
     context_object_name = 'services'
-  
-    
+
     def get_queryset(self):
-        return Service.objects.all()
+        return services
 
 class DetailView(generic.DetailView):
 
