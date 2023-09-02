@@ -4,7 +4,7 @@ import dataclasses
 @dataclasses.dataclass
 class HomepageText:
     our_firm: str =  """
-        Located in Ébène, the Financial Services Centre of Mauritius, we provide an array of services and 
+        bliblibli Located in Ébène, the Financial Services Centre of Mauritius, we provide an array of services and 
         solutions that help our clients run their businesses efficiently by optimising their business processes, 
         improving their reporting accuracy and minimising their operating costs. Ranging from Accountancy, Structuring 
         and Tax Services, Formation of Companies, Corporate Secretarial and other Financial Services to Individuals and 
