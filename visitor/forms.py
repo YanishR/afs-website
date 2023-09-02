@@ -15,10 +15,6 @@ class ContactForm(forms.Form):
     enquiry = forms.CharField(label='Enquiry Description', max_length=500)
 
     def send_email(self):
-        print(self.cleaned_data['name'])
-        print(self.cleaned_data['email'])
-        print(self.cleaned_data['subject'])
-        print(self.cleaned_data['enquiry'])
         send_mail(
             "Enquiry from " + self.cleaned_data['name'],
             self.cleaned_data['subject'] +\
