@@ -1,3 +1,4 @@
+from django.core.exceptions import ValidationError
 from django.db import models
 
 # Create your models here.
@@ -60,5 +61,3 @@ class Homepage(models.Model):
             raise ValidationError(
                     "Can only create one instance of " + model.__name__)
     
-class AboutUs(models.Model):
-    pass
