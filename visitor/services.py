@@ -1,10 +1,5 @@
 import dataclasses
 
-
-@dataclasses.dataclass
-class ServiceDetail:
-    description: str
-
 @dataclasses.dataclass
 class Service:
     name: str
