@@ -18,14 +18,14 @@
         <div class="col-1">
         </div>
         <div class="col-8">
-            <p> {{ service.long_description }} </p>
-            {% if details %}
+            <p> {{ service.short_description }} </p>
+            {% if service.details %}
                 <div class="row about">
                     <h4> The {{ service.name }} we provide cover the following:</h4>
                     <ul class="detail">
-                        {% for detail in details %}
+                        {% for detail in service.details %}
                         <li class="detail"> 
-                            <i class="detail-arrow fas fa-arrow-right"></i> {{ detail.description }}
+                            <i class="detail-arrow fas fa-arrow-right"></i> {{ detail }}
                         </li> 
                         {%  endfor %}
                     </ul>
