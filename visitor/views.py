@@ -63,16 +63,12 @@ class ContactView(generic.edit.FormView):
 
     def form_valid(self, form):
         if form.is_valid():
-            print("sending email")
             form.send_email()
 
         return super().form_valid(form)
 
     def form_invalid(self, form):
-        print("form invalid")
-        print(form.errors)
         response = super().form_invalid(form)
-        print(form.cleaned_data['subject'])
         return response
 
 class ContactSuccessView(generic.ListView):
