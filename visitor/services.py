@@ -2,19 +2,19 @@ import dataclasses
 
 
 @dataclasses.dataclass
+class ServiceDetail:
+    name: str
+    description: str
+
+@dataclasses.dataclass
 class Service:
     name: str
     short_description: str
-    display: bool
     icon: str
-    rank: int
+    path: str
     long_description: str | None = None
+    service_details: list[ServiceDetail] | None = None
 
-@dataclasses.dataclass
-class ServiceDetail:
-    service: Service
-    name: str
-    description: str
 
 services = [
     Service(

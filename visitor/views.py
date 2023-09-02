@@ -7,7 +7,6 @@ from django.views import generic
 
 from .homepage_text import HomepageText
 # Model imports
-from .models import Service, ServiceDetail, Homepage
 
 # Form imports
 from .forms import ContactForm
@@ -52,15 +51,13 @@ class ServicesView(generic.ListView):
 
 class DetailView(generic.DetailView):
 
-    model = Service 
-
     template_name = 'visitor/detail.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        return { 'service' : context['service'],
-                'details' :  ServiceDetail.objects.filter(service=context['service'].rank)
+        return { 'service' : services[0],
+                'details' :  services[0].service_details,
                 }
 
 class ContactView(generic.edit.FormView):

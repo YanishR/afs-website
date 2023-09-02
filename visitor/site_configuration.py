@@ -1,4 +1,3 @@
-
 site_configuration = {
     "company_name" : "Abhasa Financial Services",
     "company_name_abbreviation" : "AFS",
