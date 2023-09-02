@@ -20,7 +20,6 @@ from .services import services
 # Create your views here.
 class IndexView(generic.ListView):
     template_name = 'visitor/homepage.html'
-
     context_object_name = 'home'
 
     def get_queryset(self):
@@ -28,7 +27,6 @@ class IndexView(generic.ListView):
 
 class AboutView(generic.ListView):
     template_name = 'visitor/company.html'
-
     context_object_name = 'company'
 
     def get_queryset(self):
@@ -50,15 +48,12 @@ class ServicesView(generic.ListView):
         return services
 
 class DetailView(generic.DetailView):
-
     template_name = 'visitor/detail.html'
+    context_object_name = 'service'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-
-        return { 'service' : services[0],
-                'details' :  services[0].service_details,
-                }
+    def get_object(self, queryset=None):
+        identifier = self.kwargs.get("identifier")
+        return next((item for item in services if item.path == identifier), None)
 
 class ContactView(generic.edit.FormView):
     template_name = 'visitor/contact.html'
