@@ -1,3 +1,7 @@
 .idea/
+
 .python-version
+
 .DS_Store
+
+*.pyc
