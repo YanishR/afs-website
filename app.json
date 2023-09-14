@@ -8,6 +8,14 @@
     "DJANGO_SECRET_KEY": {
       "description": "The secret key for the Django application.",
       "generator": "secret"
+    },
+    "EMAIL_HOST_USER": {
+      "description": "The email address of the user.",
+      "generator": "secret"
+    },
+    "EMAIL_HOST_PASSWORD": {
+      "description": "The email password.",
+      "generator": "secret"
     }
   },
   "buildpacks": [
