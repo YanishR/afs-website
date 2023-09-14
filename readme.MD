@@ -16,3 +16,7 @@ Run `python manage.py migrate`
 To make migrations `python manage.py makemigrations`
 
 Simply run `python manage.py runserver`
+
+## Collecting static files for whitenoise
+
+Run `python manage.py collectstatic`
