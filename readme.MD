@@ -45,3 +45,15 @@ Run `python manage.py collectstatic`
 > This needs to be done before merging if static
 > files have been added.
 > There is work coming to do that on the CI side.
+
+## Deployment
+
+To crate a review app, simply create a PR on the `main` branch.
+This will temporarily deploy the application to a Heroku app.
+
+When there's a merge onto `main`, the branch is 
+automatically deployed with the up-to-date code.
+
+## Repository layout
+
+
