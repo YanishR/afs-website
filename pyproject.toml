@@ -7,7 +7,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "3.11.3"
-django = "4.2.3"
+django = "4.2.7"
 gunicorn = "21.2.0"
 pytz = "2020.1"
 django-heroku = "0.3.1"
