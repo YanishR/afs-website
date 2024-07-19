@@ -8,6 +8,7 @@ class HomepageText:
         solutions that enable our clients to run their businesses efficiently. Ranging from Accountancy, Structuring 
         and Tax Services, Formation of Companies, Corporate Secretarial and other Financial Services to Individuals and 
         Corporates, we offer a professional and personalised service on a case-to-case basis to our clients.
+        More stuff we want to say!
     """
     about_us: str = """
         Abhasa Financial Services has a team of professionals dedicated to service the clients by ensuring that all regulatory obligations are met and offer guidance on the financial aspects of their businesses. The clients are mainly family owned enterprises operating in a wide range of activities. AFS has gained valuable experience in advising both foreign and mauritian nationals to set up businesses in the domestic market. The team assist in the incorporation process, bank account opening and set up the accounting framework.
