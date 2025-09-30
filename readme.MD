@@ -8,6 +8,7 @@ The website itself is hosted on Heroku.
 ### Prerequisites
 
 In order to run the server, you will need:
+
 - Pyenv to manage Python versions
 - Python 3.11
 - Poetry 2
@@ -15,16 +16,14 @@ In order to run the server, you will need:
 
 ### Creating a shell
 
+`eval $(poetry env activate)`
+
 Set the local and Poetry version:
 
 `pyenv local 3.11.3 && poetry env use 3.11.3`
 
-Enter the shell:
-`poetry shell`
-
 Install dependencies:
 `poetry install`
-
 
 ## Running the website locally
 
