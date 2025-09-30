@@ -4,7 +4,7 @@ import dataclasses
 @dataclasses.dataclass
 class HomepageText:
     our_firm: str =  """
-        Located in Vacoas, an affluent town home to foreign consulates and embassies, we provide Accountancy services and 
+        Located in Floreal, an affluent town home to foreign consulates and embassies, we provide Accountancy services and 
         solutions that enable our clients to run their businesses efficiently. Ranging from Accountancy, Structuring 
         and Tax Services, Formation of Companies, Corporate Secretarial and other Financial Services to Individuals and 
         Corporates, we offer a professional and personalised service on a case-to-case basis to our clients.
