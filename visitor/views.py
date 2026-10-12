@@ -23,7 +23,7 @@ class IndexView(generic.ListView):
     context_object_name = 'home'
 
     def get_queryset(self):
-        return { 'text': HomepageText() }
+        return { 'text': HomepageText(), 'services': services }
 
 class AboutView(generic.ListView):
     template_name = 'visitor/company.html'

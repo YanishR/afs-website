@@ -1,37 +1,37 @@
 {% extends "v_base.html" %}
 {% load static %}
 
-{% block title  %} AFS Services {% endblock %}
-{% block stylesheets %}
-    <link rel="stylesheet" type="text/css" href="{% static 'visitor/css/services.css' %}">
-{% endblock%}
+{% block title %}Our Services · Abhasa Financial Services{% endblock %}
+
+{% block banner_image %}{% static 'visitor/img/skyscraper.jpg' %}{% endblock %}
+{% block eyebrow %}What we do{% endblock %}
 {% block pagename %}Our Services{% endblock %}
+
 {% block content %}
 
-<div class="container">
-    <div class="container marketing">
-        <div class="col-12">
-            <div class="row">
-                {% for service in services %}
-                    <div class="col-lg-3 service">
-                        <a class="service-link text-center" href="{% url 'visitor:detail' service.path %}">
-                            <span class="service-icon">
-                                <i class="fas fa-{{ service.icon }}"></i>
-                            </span>
+<section class="section">
+    <div class="container">
+        <div class="section-head reveal">
+            <h2 class="section-title">From start-ups to established enterprises</h2>
+            <p>A full scope of accountancy, tax, finance and secretarial services,
+                tailored to your business on a case-to-case basis.</p>
+        </div>
+        <div class="row g-4">
+            {% for service in services %}
+                <div class="col-sm-6 col-lg-3 reveal">
+                    {% include 'visitor/service-card.html' %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
 
-                            <h5 class="service-name">{{ service.name }}</h5>
-                        </a>
-                    </div><!-- /.col-lg-3 -->
-                    {% if forloop.counter|divisibleby:4  %}
-            </div> <!-- /.row-->
-            <div class="row">
-                    {% endif %}
-              {% endfor %}
-            </div> <!-- /.row -->
-        </div><!--/.col-12 -->
-    </div>    <!-- /.container marketing -->
-</div> <!--/.container -->
-
-<hr>
+<section class="photo-band photo-band-short" style="background-image: url('{% static 'visitor/img/mauritius-coast.jpg' %}');">
+    <div class="container text-center">
+        <h2 class="section-title">Not sure where to start?</h2>
+        <p class="lead-text mx-auto">Tell us about your business and we'll recommend the right support.</p>
+        <a class="btn btn-brand btn-lg" href="{% url 'visitor:contact' %}">Contact us</a>
+    </div>
+</section>
 
 {% endblock %}

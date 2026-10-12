@@ -1,155 +1,136 @@
 {% extends "v_base.html" %}
 {% load static %}
 
-{% block title %}
-    Abhasa Financial Services 
-{% endblock %}
+{% block title %}Abhasa Financial Services{% endblock %}
 
-{% block stylesheets %}
-    <link rel="stylesheet" type="text/css" href="{% static 'visitor/css/homepage.css' %}">
-{% endblock%}
-
-{% block carousel %}
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <svg 
-            class="bd-placeholder-img" width="100%" 
-            height="100%" 
-            xmlns="http://www.w3.org/2000/svg" 
-            preserveAspectRatio="xMidYMid slice" 
-            focusable="false" role="img">
-            <img src="{% static 'visitor/background.jpeg' %}" alt="AFS"/></svg>
-        <div class="container">
-          <div class="carousel-caption text-center">
-              <h1> Abhasa Financial Services </h1>
-              <hr class="title-hr">
-              <h3> Specialising in Accountancy, Taxation and Company Secretarial Work</h3>
-              <p><a class="btn btn-lg btn-danger" href="{% url 'visitor:about' %}" role="button" id="redirect">
-                  Learn More</a></p>
-          </div>
+{% block hero %}
+<section class="hero" style="background-image: url('{% static 'visitor/img/hero-le-morne.jpg' %}');">
+    <div class="container">
+        <div class="hero-content">
+            <p class="eyebrow">Floreal &middot; Mauritius</p>
+            <h1>Your strategic financial partner in Mauritius</h1>
+            <p class="lead">Abhasa Financial Services specialises in accountancy, taxation and
+                company secretarial work for SMEs, start-ups and family-owned enterprises.</p>
+            <div class="hero-actions">
+                <a class="btn btn-brand btn-lg" href="{% url 'visitor:services' %}">Explore our services</a>
+                <a class="btn btn-outline-light btn-lg" href="{% url 'visitor:about' %}">Learn more</a>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-
+    <a href="#our-firm" class="hero-scroll" aria-label="Scroll down"><i class="fas fa-chevron-down"></i></a>
+</section>
 {% endblock %}
 
 {% block content %}
-  <!-- Marketing messaging and featurettes
-  ================================================== -->
-  <!-- Wrap the rest of the page in another container to center all the content. -->
 
-<div class="row homeinfo" id="first">
+<!-- Highlights -->
+<section class="highlights">
+    <div class="container">
+        <div class="row g-0">
+            <div class="col-6 col-lg-3 highlight">
+                <i class="fas fa-award"></i>
+                <div><strong>ICAEW</strong><span>Chartered Accountant founder</span></div>
+            </div>
+            <div class="col-6 col-lg-3 highlight">
+                <i class="fas fa-shield-alt"></i>
+                <div><strong>MIPA</strong><span>Authorised services provider</span></div>
+            </div>
+            <div class="col-6 col-lg-3 highlight">
+                <i class="fas fa-layer-group"></i>
+                <div><strong>{{ home.services|length }} services</strong><span>One-stop shop for SMEs</span></div>
+            </div>
+            <div class="col-6 col-lg-3 highlight">
+                <i class="fas fa-handshake"></i>
+                <div><strong>Since 2016</strong><span>Long-term client relationships</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Our firm -->
+<section class="section" id="our-firm">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6 reveal">
+                <div class="image-stack">
+                    <img src="{% static 'visitor/img/finance-desk.jpg' %}" alt="Desk with laptop, calculator and financial documents" class="image-main">
+                    <img src="{% static 'visitor/about.jpg' %}" alt="Team reviewing financial charts" class="image-accent">
+                </div>
+            </div>
+            <div class="col-lg-6 reveal">
+                <p class="eyebrow">Our Firm</p>
+                <h2 class="section-title">Professional, personalised financial services</h2>
+                <p class="lead-text">{{ home.text.our_firm }}</p>
+                <a href="{% url 'visitor:about' %}" class="link-arrow">More about us <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services -->
+<section class="section section-muted">
+    <div class="container">
+        <div class="section-head reveal">
+            <p class="eyebrow">What we do</p>
+            <h2 class="section-title">Our Services</h2>
+            <p>Comprehensive support on all strategic and operational aspects of your business.</p>
+        </div>
+        <div class="row g-4">
+            {% for service in home.services %}
+                <div class="col-sm-6 col-lg-3 reveal">
+                    {% include 'visitor/service-card.html' %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- About / Mauritius band -->
+<section class="photo-band" style="background-image: url('{% static 'visitor/img/port-louis-evening.jpg' %}');">
     <div class="container">
         <div class="row">
-            <div class=col-lg-8 >
-                <div class="container marketing">
-                    <!-- Three columns of text below the carousel -->
-                    <h2 class="text-center">Our Services</h2>
-                    <hr>
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <span class="homepage-icon">
-                                <i class="fas fa-calculator"></i>
-                            </span>
-                            <h5 class="homepage-services">Accountancy Services</h5>
-                        </div><!-- /.col-lg-4 -->
-                        <div class="col-lg-4">
-                          <span class="homepage-icon">
-                              <i class="fas fa-percentage"></i>
-                          </span>
-                        <h5 class="homepage-services">Tax Services</h5>
-                        </div><!-- /.col-lg-4 -->
-                        <div class="col-lg-4">
-                            <span class="homepage-icon">
-                                <i class="fas fa-briefcase"></i>
-                            </span>
-                            <h5 class="homepage-services">Corporate Finance</h5>
-                        </div><!-- /.col-lg-4 -->
-                        <a role="button" class="btn btn-outline-danger btn-lg btn-block" 
-                            href="{% url 'visitor:services'%}">
-                          <i class="far fa-plus-square"></i> All Services  </a>
-                    </div> <!-- /.row-->
-                </div> <!-- /.container marketing -->
-            </div> <!-- /.col-8 -->
+            <div class="col-lg-7 reveal">
+                <p class="eyebrow">About Us</p>
+                <h2 class="section-title">Rooted in Mauritius, serving local and international clients</h2>
+                <p class="lead-text">{{ home.text.about_us }}</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-            <div class="space col-lg-1">
-            </div><!-- /. col-1 -->
-            <div class="col-lg-3">
-                {% include 'visitor/contact-card.html'%}
-            </div> <!-- /.col-3 -->
-        </div> <!--/.row-->
-    </div><!-- /.container-->
-</div><!-- /.row -->
-
-    <!-- START THE FEATURETTES -->
-
-<div class="row homeinfo" id="secondrow">
+<!-- Founder -->
+<section class="section">
     <div class="container">
-        <hr class="featurette-divider">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-5 reveal">
+                <div class="founder-photo">
+                    <img src="{% static 'visitor/director.jpg' %}" alt="Rubysen Rambocus, founder of Abhasa Financial Services">
+                </div>
+            </div>
+            <div class="col-lg-7 reveal">
+                <p class="eyebrow">Director's Resume</p>
+                <h2 class="section-title">Meet our founder</h2>
+                <p class="founder-name">Rubysen Rambocus <span>Member, ICAEW</span></p>
+                <p class="lead-text">{{ home.text.resume }}</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-        <div class="row featurette">
-          <div class="col-md-12">
-              <h2 class="featurette-heading">Our Firm.</h2>
-              <p class="lead"> {{ home.text.our_firm }}</p>
-          </div>
-        </div><!--/.row featurette -->
-    </div> <!-- /.container -->
-</div> <!--/.row -->
-
-<div class="row homeinfo" id="thirdrow">
+<!-- Call to action -->
+<section class="cta">
     <div class="container">
-        <hr class="featurette-divider">
+        <div class="row align-items-center g-4">
+            <div class="col-lg-7">
+                <h2>Let's talk about your business</h2>
+                <p>Speak to one of our financial advisers. Submit your details and we'll be in touch shortly.</p>
+                <a class="btn btn-brand btn-lg mt-2" href="{% url 'visitor:contact' %}">Contact us</a>
+            </div>
+            <div class="col-lg-5">
+                {% include 'visitor/contact-card.html' %}
+            </div>
+        </div>
+    </div>
+</section>
 
-        <div class="row featurette">
-          <div class="col-md-7">
-            <h2 class="featurette-heading">About Us</span></h2>
-            <p class="lead"> {{ home.text.about_us}} </p>
-          </div> <!--/.col-md-7 -->
-          <div class="col-md-5">
-            <svg class="bd-placeholder-img bd-placeholder-img-lg 
-                featurette-image img-fluid mx-auto" width="500" height="500" 
-                xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" 
-                focusable="false" role="img" aria-label="Placeholder: 500x500">
-                <title>Placeholder</title>
-                <image width=100% height=100% href={% static 'visitor/about.jpg' %}>
-                <text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
-          </div> <!--/.col-md-5 -->
-        </div> <!-- /.row featurette -->
-    </div> <!--/.container -->
-</div> <!--/.row -->
-
-<div class="row homeinfo" id="fourthrow">
-    <div class="container">
-        <hr class="featurette-divider">
-
-        <div class="row featurette">
-            <div class="col-md-7 order-md-2">
-                <h2 class="featurette-heading">Director's Resume</h2>
-                <p class="lead">{{ home.text.resume }}</p>
-            </div> <!--/.col-md-7 order-md-2 -->
-
-            <div class="col-md-5 order-md-1">
-                <svg class="bd-placeholder-img bd-placeholder-img-lg 
-                    featurette-image img-fluid mx-auto" width="500" height="500" 
-                    xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" 
-                    focusable="false" role="img" aria-label="Placeholder: 500x500">
-                    <title>Placeholder</title>
-                    <image width="100%" height="100%" href="{% static 'visitor/director.jpg' %}"/></svg>
-                    </svg>
-            </div> <!--/.col-md-5 order-md-1 -->
-        </div> <!--/.row featurette -->
-        <hr class="featurette-divider">
-    </div> <!-- /.container -->
-</div> <!-- /.row -->
-    <!-- /END THE FEATURETTES -->
-
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" 
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" 
-    crossorigin="anonymous"></script>
-      <script>window.jQuery || 
-          document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
-          <script src="{% static 'visitor/bootstrap.bundle.js' %}"></script>
 {% endblock %}

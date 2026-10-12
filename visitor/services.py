@@ -35,7 +35,7 @@ services = [
         path="tax-services",
         icon="percent",
         name="Tax Services",
-        short_description="at abhasa financial services, we work closelywith our clients to determine any funding requirement for their business growth and / or acquisition of new businesses.",
+        short_description="We assist our clients to be Tax compliant and provide the required support in the computation of Income Tax and VAT returns as well as their filings.",
         long_description="We assist our clients to be Tax compliant and provide the required support in the computation of Income Tax and VAT returns as well as their filings.  We actively advise our clients in their Tax planning and deal with any queries and/or investigations by the Mauritius Revenue Authority (MRA).",
         details=[
             "Preparation of VAT return for its submission to the MRA.",
