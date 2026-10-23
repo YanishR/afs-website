@@ -1,40 +1,37 @@
 {% extends "v_base.html" %}
 {% load static %}
 
-{% block title %}AFS {{ service.name }}{% endblock %}
+{% block title %}{{ service.name }} · Abhasa Financial Services{% endblock %}
 
-{% block stylesheets %}
-    <link rel="stylesheet" type="text/css" href="{% static 'visitor/css/detail.css' %}">
-{% endblock%}
-
+{% block banner_image %}{% static 'visitor/img/advisor-notes.jpg' %}{% endblock %}
+{% block eyebrow %}Our Services{% endblock %}
 {% block pagename %}{{ service.name }}{% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col-3">
-            {% include 'visitor/contact-card.html' %}
-        </div>
-        <div class="col-1">
-        </div>
-        <div class="col-8">
-            <p> {{ service.short_description }} </p>
-            {% if service.details %}
-                <div class="row about">
-                    <h4> The {{ service.name }} we provide cover the following:</h4>
-                    <ul class="detail">
-                        {% for detail in service.details %}
-                        <li class="detail"> 
-                            <i class="detail-arrow fas fa-arrow-right"></i> {{ detail }}
-                        </li> 
-                        {%  endfor %}
-                    </ul>
-                </div>
-            {% endif %}
-        </div>
-    </div>
-    </div>
-</div>
 
-<hr>
+<section class="section">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-8 reveal">
+                <span class="service-icon service-icon-lg"><i class="fas fa-{{ service.icon }}"></i></span>
+                <p class="lead-text">{{ service.long_description }}</p>
+                {% if service.details %}
+                    <div class="feature-panel mt-4">
+                        <h3>The {{ service.name }} we provide cover the following:</h3>
+                        <ul class="check-list">
+                            {% for detail in service.details %}
+                                <li>{{ detail }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+            </div>
+            <aside class="col-lg-4 reveal">
+                {% include 'visitor/contact-card.html' %}
+                <a class="btn btn-brand btn-lg w-100 mt-3" href="{% url 'visitor:contact' %}">Enquire about this service</a>
+            </aside>
+        </div>
+    </div>
+</section>
+
 {% endblock %}

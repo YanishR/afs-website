@@ -1,0 +1,6 @@
+<a class="service-card" href="{% url 'visitor:detail' service.path %}">
+    <span class="service-icon"><i class="fas fa-{{ service.icon }}"></i></span>
+    <h3>{{ service.name }}</h3>
+    <p>{{ service.short_description|truncatewords:20 }}</p>
+    <span class="link-arrow">Learn more <i class="fas fa-arrow-right"></i></span>
+</a>
