@@ -5,7 +5,6 @@ from django.urls import reverse
 
 from django.views import generic
 
-from .homepage_text import HomepageText
 # Model imports
 
 # Form imports
@@ -14,7 +13,7 @@ from .forms import ContactForm
 # Email imports
 from django.core.mail import send_mail
 
-from .services import services
+from .services import services, home_services
 
 
 # Create your views here.
@@ -23,7 +22,7 @@ class IndexView(generic.ListView):
     context_object_name = 'home'
 
     def get_queryset(self):
-        return { 'text': HomepageText(), 'services': services }
+        return { 'services': home_services }
 
 class AboutView(generic.ListView):
     template_name = 'visitor/company.html'

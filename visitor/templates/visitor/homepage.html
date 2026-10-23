@@ -3,132 +3,95 @@
 
 {% block title %}Abhasa Financial Services{% endblock %}
 
-{% block hero %}
-<section class="hero" style="background-image: url('{% static 'visitor/img/hero-le-morne.jpg' %}');">
-    <div class="container">
-        <div class="hero-content">
-            <p class="eyebrow">Floreal &middot; Mauritius</p>
-            <h1>Your strategic financial partner in Mauritius</h1>
-            <p class="lead">Abhasa Financial Services specialises in accountancy, taxation and
-                company secretarial work for SMEs, start-ups and family-owned enterprises.</p>
-            <div class="hero-actions">
-                <a class="btn btn-brand btn-lg" href="{% url 'visitor:services' %}">Explore our services</a>
-                <a class="btn btn-outline-light btn-lg" href="{% url 'visitor:about' %}">Learn more</a>
-            </div>
-        </div>
-    </div>
-    <a href="#our-firm" class="hero-scroll" aria-label="Scroll down"><i class="fas fa-chevron-down"></i></a>
-</section>
-{% endblock %}
-
 {% block content %}
 
-<!-- Highlights -->
-<section class="highlights">
+<!-- Hero -->
+<section class="hero" style="background-image: url('{% static 'visitor/img/home/hero-le-morne.jpg' %}');">
     <div class="container">
-        <div class="row g-0">
-            <div class="col-6 col-lg-3 highlight">
-                <i class="fas fa-award"></i>
-                <div><strong>ICAEW</strong><span>Chartered Accountant founder</span></div>
-            </div>
-            <div class="col-6 col-lg-3 highlight">
-                <i class="fas fa-shield-alt"></i>
-                <div><strong>MIPA</strong><span>Authorised services provider</span></div>
-            </div>
-            <div class="col-6 col-lg-3 highlight">
-                <i class="fas fa-layer-group"></i>
-                <div><strong>{{ home.services|length }} services</strong><span>One-stop shop for SMEs</span></div>
-            </div>
-            <div class="col-6 col-lg-3 highlight">
-                <i class="fas fa-handshake"></i>
-                <div><strong>Since 2016</strong><span>Long-term client relationships</span></div>
-            </div>
+        <div class="hero__content">
+            <p class="eyebrow eyebrow--light">Mauritius</p>
+            <h1 class="hero__title">Your strategic financial partner in Mauritius</h1>
+            <p class="hero__lead">Abhasa Financial Services specialises in accountancy, company secretarial and
+                compliance work for SMEs, start-ups and family-owned enterprises.</p>
         </div>
     </div>
 </section>
 
 <!-- Our firm -->
-<section class="section" id="our-firm">
-    <div class="container">
-        <div class="row align-items-center g-5">
-            <div class="col-lg-6 reveal">
-                <div class="image-stack">
-                    <img src="{% static 'visitor/img/finance-desk.jpg' %}" alt="Desk with laptop, calculator and financial documents" class="image-main">
-                    <img src="{% static 'visitor/about.jpg' %}" alt="Team reviewing financial charts" class="image-accent">
-                </div>
-            </div>
-            <div class="col-lg-6 reveal">
-                <p class="eyebrow">Our Firm</p>
-                <h2 class="section-title">Professional, personalised financial services</h2>
-                <p class="lead-text">{{ home.text.our_firm }}</p>
-                <a href="{% url 'visitor:about' %}" class="link-arrow">More about us <i class="fas fa-arrow-right"></i></a>
-            </div>
+<section class="firm" id="our-firm">
+    <div class="container firm__inner">
+        <img class="firm__image" src="{% static 'visitor/img/home/our-firm-desk.jpg' %}"
+             alt="Adviser reviewing and signing financial documents at a desk" width="1080" height="1280" loading="lazy">
+        <div class="firm__text">
+            <p class="eyebrow">Our Firm</p>
+            <h2 class="firm__title">Professional, personalised financial services</h2>
+            <p>Located in Floreal, an affluent town home to foreign consulates and embassies, we provide accountancy,
+                company secretarial and compliance services that enable our clients to run their businesses efficiently.</p>
+            <p>Whether you are an individual, a start-up or an established corporate, we offer a professional and
+                personalised service, tailored to you case by case.</p>
         </div>
     </div>
 </section>
 
 <!-- Services -->
-<section class="section section-muted">
+<section class="services" id="services">
     <div class="container">
-        <div class="section-head reveal">
+        <div class="services__head">
             <p class="eyebrow">What we do</p>
-            <h2 class="section-title">Our Services</h2>
-            <p>Comprehensive support on all strategic and operational aspects of your business.</p>
+            <h2 class="services__title">Our Services</h2>
+            <p>Focused expertise across the three areas that keep your business running smoothly and fully compliant.</p>
         </div>
-        <div class="row g-4">
+        <div class="services__cards">
             {% for service in home.services %}
-                <div class="col-sm-6 col-lg-3 reveal">
-                    {% include 'visitor/service-card.html' %}
-                </div>
+                {% include 'visitor/home-service-card.html' %}
             {% endfor %}
         </div>
     </div>
 </section>
 
-<!-- About / Mauritius band -->
-<section class="photo-band" style="background-image: url('{% static 'visitor/img/port-louis-evening.jpg' %}');">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-7 reveal">
-                <p class="eyebrow">About Us</p>
-                <h2 class="section-title">Rooted in Mauritius, serving local and international clients</h2>
-                <p class="lead-text">{{ home.text.about_us }}</p>
-            </div>
-        </div>
+<!-- About us -->
+<section class="about" id="about" style="background-image: url('{% static 'visitor/img/port-louis-evening.jpg' %}');">
+    <div class="container about__content">
+        <p class="eyebrow eyebrow--light">About Us</p>
+        <h2 class="about__title">Rooted in Mauritius, serving local and international clients</h2>
+        <p>Abhasa Financial Services has a team of professionals dedicated to serving clients by ensuring that all
+            regulatory obligations are met, and by offering guidance on the financial aspects of their businesses.
+            Our clients are mainly family-owned enterprises operating in a wide range of activities. We have gained
+            valuable experience advising both foreign and Mauritian nationals on setting up businesses in the domestic
+            market, from incorporation and bank account opening to setting up the accounting framework.</p>
     </div>
 </section>
 
-<!-- Founder -->
-<section class="section">
+<!-- Directors -->
+<section class="directors" id="directors">
     <div class="container">
-        <div class="row align-items-center g-5">
-            <div class="col-lg-5 reveal">
-                <div class="founder-photo">
-                    <img src="{% static 'visitor/director.jpg' %}" alt="Rubysen Rambocus, founder of Abhasa Financial Services">
+        <h2 class="directors__title">Meet our directors</h2>
+        <div class="directors__cards">
+            <article class="director-card">
+                <img class="director-card__photo" src="{% static 'visitor/img/home/director-rubysen.jpg' %}"
+                     alt="Portrait of Rubysen Rambocus" width="1256" height="920" loading="lazy">
+                <div class="director-card__body">
+                    <p class="director-card__role">Founder &amp; Director</p>
+                    <h3 class="director-card__name">Rubysen Rambocus</h3>
+                    <p>Rubysen Rambocus is a member of the Institute of Chartered Accountants in England and Wales.
+                        He has acquired strong commercial and business acumen from years in senior managerial positions
+                        with major international conglomerates, operating in diverse and dynamic sectors such as financial
+                        services, telecommunications, manufacturing and distribution. This experience enables him to offer
+                        insightful guidance and advice to the company’s clients.</p>
                 </div>
-            </div>
-            <div class="col-lg-7 reveal">
-                <p class="eyebrow">Director's Resume</p>
-                <h2 class="section-title">Meet our founder</h2>
-                <p class="founder-name">Rubysen Rambocus <span>Member, ICAEW</span></p>
-                <p class="lead-text">{{ home.text.resume }}</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Call to action -->
-<section class="cta">
-    <div class="container">
-        <div class="row align-items-center g-4">
-            <div class="col-lg-7">
-                <h2>Let's talk about your business</h2>
-                <p>Speak to one of our financial advisers. Submit your details and we'll be in touch shortly.</p>
-                <a class="btn btn-brand btn-lg mt-2" href="{% url 'visitor:contact' %}">Contact us</a>
-            </div>
-            <div class="col-lg-5">
-                {% include 'visitor/contact-card.html' %}
-            </div>
+            </article>
+            <article class="director-card">
+                <img class="director-card__photo" src="{% static 'visitor/img/home/director-chaya.jpg' %}"
+                     alt="Portrait of Chaya Mungla" width="1256" height="920" loading="lazy">
+                <div class="director-card__body">
+                    <p class="director-card__role">Director</p>
+                    <h3 class="director-card__name">Chaya Mungla</h3>
+                    <p>Chaya Mungla has over 30 years of experience in Mauritius’ financial services and global business
+                        sector, specialising in business operations, investment funds, corporate governance, risk and
+                        compliance. As Director of Abhasa, she combines her commercial and regulatory expertise to provide
+                        strategic guidance, helping clients manage risks, strengthen governance and achieve sustainable growth.</p>
+                </div>
+            </article>
         </div>
     </div>
 </section>

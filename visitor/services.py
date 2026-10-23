@@ -95,3 +95,44 @@ services = [
     ),
 
 ]
+
+@dataclasses.dataclass
+class HomeService:
+    name: str
+    icon: str
+    description: str
+    points: list[str]
+
+# The three service areas summarised on the homepage.
+home_services = [
+    HomeService(
+        name="Accountancy",
+        icon="icon-accountancy.svg",
+        description="We provide bespoke accountancy services to our clients, ranging from start-ups to Public Interest Entities.",
+        points=[
+            "Bookkeeping & management accounts",
+            "Annual financial statements",
+            "Accounting software set-up",
+        ]
+    ),
+    HomeService(
+        name="Company Secretarial",
+        icon="icon-secretarial.svg",
+        description="A full company secretarial service to keep you compliant with the Companies Act, from incorporation onwards.",
+        points=[
+            "Company formation & incorporation",
+            "Statutory registers & annual filings",
+            "Board & shareholder resolutions",
+        ]
+    ),
+    HomeService(
+        name="Compliance",
+        icon="icon-compliance.svg",
+        description="We help you meet every regulatory and tax obligation on time, so you can focus on growing your business.",
+        points=[
+            "Tax compliance & returns",
+            "Permits & licence applications",
+            "Ongoing regulatory monitoring",
+        ]
+    ),
+]
